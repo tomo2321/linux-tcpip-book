@@ -1,0 +1,12 @@
+services:
+  netns-lab:
+    build: .
+    image: tomo2321/linux-tcpip-book
+    volumes:
+      - .:/root/lab
+    # TODO: Use cap_add instead of --privileged to grant only the minimal required capabilities
+    privileged: true
+    tmpfs:
+      - /run/netns
+    stdin_open: true
+    tty: true
